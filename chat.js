@@ -11,7 +11,15 @@ const joinRoomButton = document.querySelector('#join-room-button');
 
 let currentRoom = ''; // Variable para almacenar la sala actual
 
-//TODO: unirnos a un evento creado por el servidor que seria la sala a la cual nos queremos unir
+joinRoomButton.addEventListener('click', () => {
+  currentRoom = roomNameInput.value;
+  if(currentRoom) {
+    socket.emit('leave room', currentRoom); // Salir de la sala acual y si se está en una
+  }
+  socket.emit('join room', currentRoom);
+  newMessageTextArea.value = '';
+});
+
 sendButton.addEventListener('click', () => {
   const message = newMessageTextArea.value;
   const userName = userNameInput.value || 'Anónimo';
