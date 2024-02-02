@@ -6,7 +6,12 @@ const newMessageTextArea = document.querySelector('#new-message');
 const sendButton = document.querySelector('#send-button');
 const userNameInput = document.querySelector('#user-name');
 
+const roomNameInput = document.querySelector('#room-name');
+const joinRoomButton = document.querySelector('#join-room-button');
 
+let currentRoom = ''; // Variable para almacenar la sala actual
+
+//TODO: unirnos a un evento creado por el servidor que seria la sala a la cual nos queremos unir
 sendButton.addEventListener('click', () => {
   const message = newMessageTextArea.value;
   const userName = userNameInput.value || 'Anónimo';
