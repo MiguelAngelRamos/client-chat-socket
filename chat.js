@@ -14,12 +14,12 @@ sendButton.addEventListener('click', () => {
   socket.emit('chat message', {userName, message});
 
   // Limpiar el campo de texto para el prox message
-  newMessageTextArea = '';
+  newMessageTextArea.value = '';
 });
 
 socket.on('chat message', (data) => {
   const messageElement = document.createElement('div');
-  console.log(data);
+  // <div></div>
   messageElement.innerText = `${data.userName} dice: ${data.message}`;
   messageContainer.appendChild(messageElement);
 })
